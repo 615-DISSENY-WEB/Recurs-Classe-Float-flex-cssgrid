@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        FLOAT
+    </header>
+    <main>
+        <h2>Llista amb float (menú horitzontal)</h2>
+        <ul>
+            <li>Inici</li>
+            <li>Serveis</li>
+            <li>Contacte</li>
+            <li>Sobre nosaltres</li>
+        </ul>
+
+        <h2>Float amb imatges</h2>
+        <div style="border:1px solid #bbb; background:#f9f9f9; padding:1em; box-sizing:border-box;">
+            <img src="./assets/img/www_128.gif" alt="Float esquerra" style="float:left; margin:0 1em 1em 0; border-radius:8px;">
+            <img src="./assets/img/internet_128.gif" alt="Float dreta" style="float:right; margin:0 0 1em 1em; border-radius:8px;">
+            <p>
+                Aquest paràgraf envolta dues imatges: una flotant a l'esquerra i una a la dreta.<br>
+                L'ús de <code>float: left</code> i <code>float: right</code> permet que el text flueixi al voltant dels elements flotants.<br>
+                Pots afegir més text per veure com el contingut s'adapta a l'espai restant entre les dues imatges flotants.
+            </p>
+            <!-- Què passa si treiem el clear: both? -->
+            <div style="clear: both;"></div> 
+        </div>
+    </main>
+    <footer>
+        Secció de peu de pàgina
+    </footer>
+</body>
+</html>
