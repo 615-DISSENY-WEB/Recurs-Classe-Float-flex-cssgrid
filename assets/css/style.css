@@ -53,8 +53,9 @@ li {
 }
 
 li {
-  float: left;
+  float: right;
 }
+
 
 /* Afegim el clear: both a un pseudo-element ::after de l’element pare (ul) 
 perquè aquest s’adapti a l’alçada dels seus fills (els li) */
@@ -79,16 +80,25 @@ ul::after{
 }
 .fill{
     background: blue;
-    width: 150px;
-    height: 50px;
+
+    height: 100px;
     margin: 5px;
     color: white;
     font-weight: bold;
-    display: inline-block;
-    flex: content;
+
+}
+.fill2{
+    background: #00ff22;
+
+    height: 100px;
+    margin: 5px;
+    color: white;
+    font-weight: bold;
+    display: inline;
     align-self: flex-start;
 
 }
+
 .margin{
     margin:20px;
     padding:10px;
@@ -105,9 +115,11 @@ ul::after{
     color: white;
     font-weight: bold;
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr; /* 3 columnes de mida automàtica */
+    grid-template-columns: 1fr 2fr 1fr 1fr; /* 3 columnes de mida automàtica */
+    grid-template-rows: 50px 100px;
     gap: 10px; /* espai entre els elements de la graella */
     height: 50vh; /* 50% de l’alçada de la finestra */
+    padding: 10px;
 }
 .fillgrid{
     background: blue;
@@ -130,24 +142,24 @@ ul::after{
 }
 
 .headergrid {
-	grid-row: 1;
+	grid-row: 1/2;
 	grid-column: 1 / 4;  /* Amb la barra (/) indiquem que ocupa de la linia 1 fins a la 4 */
     background: orange
 }
 
 .sidebargrid {
-    grid-row: 2 / 4; /* Amb la barra (/) indiquem que ocupa de la linia 2 fins a la 4 */
-    grid-column: 1;
+    grid-row: 2/4; /* Amb la barra (/) indiquem que ocupa de la linia 2 fins a la 4 */
+    grid-column: 1/2;
     background: green
 }
 .contentgrid {
-    grid-row: 2;
+    grid-row: 2/3;
     grid-column: 2;
     background: purple
 }
-.sidebargrid2 {
-    grid-row: 2 / 3; /* Amb la barra (/) indiquem que ocupa de la linia 2 fins a la 3 */
-    grid-column: 3;
+.sidebargrid12 {
+    grid-row: 2/3; /* Amb la barra (/) indiquem que ocupa de la linia 2 fins a la 3 */
+    grid-column: 3/4;
     background: red
 }
 .footergrid {
