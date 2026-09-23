@@ -1,31 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ca">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Grid 1</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grid: posicionament per línies · Laboratori de CSS</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/laboratori.js" defer></script>
 </head>
-
 <body>
-    <header>
-        CSS GRID 1
-    </header>
-    <main>
-        <h2>Exemples CSS Grid</h2>
-        <div class="containergrid1">
-            <div class="headergrid">Header</div>
-            <div class="sidebargrid">Sidebar 1</div>
-            <div class="contentgrid">Main Content</div>
-            <div class="sidebargrid12">Sidebar 2</div>
-            <div class="footergrid">Footer</div>
-        </div>
-
-    </main>
-    <footer>
-        Secció de peu de pàgina
-    </footer>
+  <a class="skip-link" href="#contingut">Salta al contingut</a>
+  <header class="site-header"><a href="index.html">Laboratori de CSS / DAW</a><p class="eyebrow">Lliçó 05 · Laboratori de CSS</p><h1>Grid: posicionament per línies</h1></header>
+  <main id="contingut">
+    <div class="intro">
+    <p><strong>Objectiu:</strong> Llegeix les línies i ocupa diverses cel·les.</p>
+    <p>Edita <code>assets/css/style.css</code> i aquest HTML. Canvia una propietat cada vegada, prediu el resultat i comprova’l al navegador.</p></div>
+    <section class="lesson">
+    <h2>Col·loca cada regió entre línies</h2>
+    <div class="demo containergrid1">
+    <div class="region headergrid">Capçalera</div>
+    <div class="region sidebargrid">Menú</div>
+    <div class="region contentgrid">Contingut principal</div>
+    <div class="region sidebargrid12">Informació extra</div>
+    <div class="region footergrid">Peu</div></div>
+    <pre tabindex="0" aria-label="Exemple de codi"><code>.containergrid1 {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 1rem;
+}
+.headergrid { grid-column: 1 / 4; grid-row: 1 / 2; }
+.sidebargrid { grid-column: 1 / 2; grid-row: 2 / 3; }
+.contentgrid { grid-column: 2 / 3; grid-row: 2 / 3; }
+.sidebargrid12 { grid-column: 3 / 4; grid-row: 2 / 3; }
+.footergrid { grid-column: 1 / 4; grid-row: 3 / 4; }</code></pre>
+    <p>El final és una línia, no una columna inclosa: 1 / 4 ocupa tres columnes. Aquest esquema és un laboratori de posicionament; a la lliçó d’àrees el farem adaptable.</p></section>
+    <section class="lesson">
+    <h2>Practica i comprova</h2>
+    <p>Reescriu la capçalera perquè comenci a la línia 1 i ocupi tres columnes amb span.</p>
+    <details>
+    <summary>Mostra una solució explicada</summary>
+    <pre tabindex="0" aria-label="Exemple de codi"><code>.headergrid { grid-column: 1 / span 3; }</code></pre>
+    <p>span indica quantes pistes ocupa l’element, en lloc de donar el número de la línia final.</p></details></section>
+    <nav class="page-nav" aria-label="Itinerari"><a href="cssgrid.html">← Grid: files i columnes</a><a href="cssgrid2.html">Grid: línies amb nom →</a></nav></main>
+  <footer class="site-footer">Observa · prediu · modifica · comprova</footer>
 </body>
-
 </html>

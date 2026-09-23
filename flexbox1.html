@@ -1,35 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ca">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flexbox</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flexbox: eixos i alineació · Laboratori de CSS</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/laboratori.js" defer></script>
 </head>
 <body>
-    <header>
-        FLEXBOX
-    </header>
-    <main>
-        <h2>Exemples Flexbox</h2>
-        <div class="container">
-            <div class="fill">1</div>
-            <div class="fill">2</div>
-            <div class="fill">3</div>
-            <div class="fill">4</div>
-            <div class="fill">5</div>
-            <div class="fill">6</div>
-            <div class="fill">7</div>
-            <div class="fill">8</div>
-            <div class="fill">9</div>
-
-        </div>
-       
-
-        <div class="margin">Div utilitzat per mostrar la diferència entre marges i paddings</div>
-    </main>
-    <footer>
-        Secció de peu de pàgina
-    </footer>
+  <a class="skip-link" href="#contingut">Salta al contingut</a>
+  <header class="site-header"><a href="index.html">Laboratori de CSS / DAW</a><p class="eyebrow">Lliçó 02 · Laboratori de CSS</p><h1>Flexbox: eixos i alineació</h1></header>
+  <main id="contingut">
+    <div class="intro">
+    <p><strong>Objectiu:</strong> Canvia la direcció i observa els dos eixos.</p>
+    <p>Edita <code>assets/css/style.css</code> i aquest HTML. Canvia una propietat cada vegada, prediu el resultat i comprova’l al navegador.</p></div>
+    <section class="lesson">
+    <h2>Un pare flexible i dos eixos</h2>
+    <p>Amb <code>row</code>, en aquest document, l’eix principal és horitzontal; amb <code>column</code> és vertical. <code>justify-content</code> actua sobre el principal i <code>align-items</code> sobre el transversal. Cal espai lliure perquè la distribució sigui visible.</p>
+    <fieldset class="controls" data-flex-controls hidden><legend>Experimenta amb el contenidor</legend>
+    <label>Direcció<select name="flex-direction"><option selected>row</option><option>column</option></select></label>
+    <label>Eix principal<select name="justify-content"><option selected>flex-start</option><option>center</option><option>space-between</option><option>flex-end</option></select></label>
+    <label>Eix transversal<select name="align-items"><option>stretch</option><option>flex-start</option><option selected>center</option><option>flex-end</option></select></label></fieldset>
+    <div class="demo flex-axes">
+    <div class="box">1</div>
+    <div class="box tall">2<br>Més alt</div>
+    <div class="box">3</div></div>
+    <pre tabindex="0" aria-label="Exemple de codi"><code id="live-code">.flex-axes {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  min-height: 18rem;
+}</code></pre>
+    <p>Els selectors modifiquen només aquesta demostració. Recarrega per recuperar els valors inicials; per desar un canvi, escriu-lo al CSS.</p></section>
+    <section class="lesson">
+    <h2>Una excepció en un fill: align-self</h2>
+    <div class="demo self-demo">
+    <div class="box">1</div>
+    <div class="box special">2 · excepció</div>
+    <div class="box">3</div></div>
+    <pre tabindex="0" aria-label="Exemple de codi"><code>.self-demo { display: flex; align-items: center; }
+.self-demo &gt; .special { align-self: flex-start; }</code></pre>
+    <p>El segon fill s’alinea a l’inici transversal. La resta segueix el valor del pare.</p></section>
+    <section class="lesson">
+    <h2>Practica i comprova</h2>
+    <p>Abans de provar-ho: amb column, quina propietat centra horitzontalment els fills? Com centraries també el grup verticalment?</p>
+    <details>
+    <summary>Mostra una solució explicada</summary>
+    <pre tabindex="0" aria-label="Exemple de codi"><code>.flex-axes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 18rem;
+}</code></pre>
+    <p>Amb column, l’eix transversal és horitzontal. L’alçada mínima deixa espai per centrar verticalment el grup.</p></details></section>
+    <nav class="page-nav" aria-label="Itinerari"><a href="fonaments.html">← Flux normal i model de caixa</a><a href="flexbox2.html">Flexbox: files i salt de línia →</a></nav></main>
+  <footer class="site-footer">Observa · prediu · modifica · comprova</footer>
 </body>
 </html>

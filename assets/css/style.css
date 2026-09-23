@@ -1,261 +1,200 @@
-body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-    }
-    header {
-        background: #1976d2;
-        color: white;
-        padding: 1em;
-        text-align: center;
-        font-size: 1.5em;
-    }
-    main {
-        min-height: 300px;
-        padding: 2em;
-        background: #e3f2fd;
-    }
-    .float-box {
-        width: 200px;
-        height: 150px;
-        margin: 1em;
-        padding: 1em;
-        background: #64b5f6;
-        color: white;
-        float: left;
-        text-align: center;
-        line-height: 150px;
-        font-size: 1.2em;
-    }
-    footer {
-        background: #1565c0;
-        color: white;
-        text-align: center;
-        padding: 1em;
-        position: relative;
-        bottom: 0;
-        width: 100%;
-    }
-
-/* CSS Per la llista amb .float-box */
-
-ul {
-  background: grey;
-  padding: 0;
+/* FONAMENTS: el flux normal ja situa els blocs un sota l'altre. */
+.box-model {
+    max-width: 20rem;
+    margin: 1.5rem;
+    padding: 1.5rem;
+    border: .5rem solid #674287;
+    background: #d5e9ef;
 }
-
-li {
-  list-style-type: none;
-  background: blue;
-  width: 100px;
-  padding: 8px;
-  margin: 8px;
-  color: white;
-}
-
-li {
-  float: right;
-}
-
-
-/* Afegim el clear: both a un pseudo-element ::after de l’element pare (ul) 
-perquè aquest s’adapti a l’alçada dels seus fills (els li) */
-ul::after{
-    clear:both;
-    content: "";
-    display: block; /* i estem dient que el pseudo-element es 
-    comporti com un element de bloc, ocupant tot l’ample disponible i 
-    forçant el clear: both a tenir efecte. */
-}
-
-/* EXEMPLE FLEXBOX */
-.container{
-    background: grey;
-    margin: 10px;
-    color: white;
-    font-weight: bold;
-    align-content: center;
-    align-items: center;
-    display: flex;
-    height: 300px;
-}
-.fill{
-    background: blue;
-
-    height: 100px;
-    margin: 5px;
-    color: white;
-    font-weight: bold;
-
-}
-.fill2{
-    background: #00ff22;
-
-    height: 100px;
-    margin: 5px;
-    color: white;
-    font-weight: bold;
-    display: inline;
-    align-self: flex-start;
-
-}
-
-.margin{
-    margin:20px;
-    padding:10px;
-    border:1px solid black;
-    background: lightgrey;
-    width: 100px;
-    height: 100px;
-    box-sizing: border-box; /* Inclou el padding i el border dins l’amplada i alçada */
-}
-/* EXEMPLE CSS GRID */
-.containergrid{
-    background: grey;
-    margin: 10px;
-    color: white;
-    font-weight: bold;
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr; /* 3 columnes de mida automàtica */
-    grid-template-rows: 50px 100px;
-    gap: 10px; /* espai entre els elements de la graella */
-    height: 50vh; /* 50% de l’alçada de la finestra */
-    padding: 10px;
-}
-.fillgrid{
-    background: blue;
-    width: 100%;
-    color: white;
-    font-weight: bold;
-}
-/* EXEMPLE CSS GRID 1*/
-
-.containergrid1{
-    background: grey;
-    margin: 10px;
-    color: white;
-    font-weight: bold;
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr; /* 3 columnes de mida automàtica */
-    grid-template-rows:100px auto 75px; /* 3 files de mida automàtica */;
-    gap: 10px; /* espai entre els elements de la graella */
-    height: 50vh; /* 50% de l’alçada de la finestra */
-}
-
-.headergrid {
-	grid-row: 1/2;
-	grid-column: 1 / 4;  /* Amb la barra (/) indiquem que ocupa de la linia 1 fins a la 4 */
-    background: orange
-}
-
-.sidebargrid {
-    grid-row: 2/4; /* Amb la barra (/) indiquem que ocupa de la linia 2 fins a la 4 */
-    grid-column: 1/2;
-    background: green
-}
-.contentgrid {
-    grid-row: 2/3;
-    grid-column: 2;
-    background: purple
-}
-.sidebargrid12 {
-    grid-row: 2/3; /* Amb la barra (/) indiquem que ocupa de la linia 2 fins a la 3 */
-    grid-column: 3/4;
-    background: red
-}
-.footergrid {
-    grid-row: 3;
-    grid-column: 2 / 4;  /* Amb la barra (/) indiquem que ocupa de la linia 1 fins a la 4 */
-    background: black
-}
-
-/* EXEMPLE CSS GRID 2*/
-
-.containergrid2{
-    background: grey;
-    margin: 10px;
-    color: white;
-    font-weight: bold;
-    display: grid;
-    grid-template-columns: 1fr 2fr [col4_ini] 1fr [col4_fi]; /* 3 columnes de mida automàtica */
-    grid-template-rows:100px auto 75px; /* 3 files de mida automàtica */;
-    gap: 10px; 
-    height: 50vh; /* 50% de l’alçada de la finestra */
-    
-}
-
-.headergrid2 {
-    grid-area: 1 / 1 / 2 / col4_fi; /* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
-	background: orange
-}
-
-.sidebargrid2 {
-    grid-area: 2 / 1 / 4 / 2; /* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
-    background: green
-}
-.contentgrid2 {
-    grid-area: 2 / 2 / 3 / 3;
-    background: purple
-}
-.sidebargrid22 {
-    grid-area: 2 / 3 / 3 / 4;
-    background: red
-}
-.footergrid2 {
-    grid-area: 3 / 2 / 4 / 4;  /* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
-    background: black
-}
-
-/* EXEMPLE CSS GRID AREAS NAME*/
-
-.containergrid3{
-    background: grey;
-    margin: 10px;
-    color: white;
-    font-weight: bold;
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr; /* 3 columnes de mida automàtica */
-    grid-template-rows:1fr 2fr 75px; /* 3 files de mida automàtica */;
-    grid-template-areas: "header header header"
-                         "sidebar content sidebar2"
-                         "footer footer footer"; /* Definim les àrees de la graella */
-    gap: 10px; 
-    height: 50vh; /* 50% de l’alçada de la finestra */
-  
-}
-
-.headergrid3 {
-    grid-area: header; /* Nom de l’àrea definida a grid-template-areas */
-	background: orange;
+.gap-demo {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; 
+    gap: 1rem;
 }
 
+/* FLEXBOX 1 — propietats del PARE: eixos i alineació. */
+.flex-axes {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    min-height: 18rem;
+}
+.flex-axes > .box {
+    padding: .5rem;
+}
+.flex-axes > .tall {
+    padding-block: 2rem;
+}
+.self-demo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: 12rem;
+}
+/* Propietat d'un FILL: sobreescriu la seva alineació transversal. */
+.self-demo > .special {
+    align-self: flex-start;
+}
+
+/* FLEXBOX 2 — posar els elements en fila i permetre el salt de línia.
+   > selecciona només els fills directes. Exemple explicat a fonaments.html. */
+.flex-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.flex-cards > .card {
+    width: 220px;
+    max-width: 100%;
+}
+
+/* GRID BÀSIC — tres columnes; dues files explícites i files implícites. */
+.containergrid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+}
+
+/* GRID 1 — tres columnes tenen QUATRE línies. */
+.containergrid1 {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 1rem;
+}
+.headergrid {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+}
+.sidebargrid {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+.contentgrid {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+.sidebargrid12 {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+}
+.footergrid {
+    grid-column: 1 / 4;
+    grid-row: 3 / 4;
+}
+
+/* GRID 2 — mateixa disposició amb línies amb nom.
+   grid-area: fila inicial / columna inicial / fila final / columna final. */
+.containergrid2 {
+    display: grid;
+    grid-template-columns: [inici] 1fr [principal] 2fr [lateral] 1fr [final];
+    gap: 1rem;
+}
+.headergrid2 {
+    grid-area: 1 / inici / 2 / final;
+}
+.sidebargrid2 {
+    grid-area: 2 / inici / 3 / principal;
+}
+.contentgrid2 {
+    grid-area: 2 / principal / 3 / lateral;
+}
+.sidebargrid22 {
+    grid-area: 2 / lateral / 3 / final;
+}
+.footergrid2 {
+    grid-area: 3 / inici / 4 / final;
+}
+
+/* GRID 3 — disseny de web en tres files: capçalera, cos amb tres columnes i peu. */
+.containergrid3 {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: "cap cap cap" "menu contingut extra" "peu peu peu";
+    gap: 1rem;
+}
+.headergrid3 {
+    grid-area: cap;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
 .sidebargrid3 {
-    grid-area: sidebar; /* Nom de l’àrea definida a grid-template-areas */
-    background: green;
+    grid-area: menu;
 }
 .contentgrid3 {
-    grid-area: content;
-    background: purple;
+    grid-area: contingut;
 }
 .sidebargrid32 {
-    grid-area: sidebar2; /* Nom de l’àrea definida a grid-template-areas */
-    background: red;
+    grid-area: extra;
 }
 .footergrid3 {
-    grid-area: footer; /* Nom de l’àrea definida a grid-template-areas */
-    background: black;
+    grid-area: peu;
 }
-.logo{
-    background: lightblue;
-    width: 100px;
-    height: 80px;
-    margin: 10px;
+
+/* GALERIA — una columna; a partir de 768px, dues columnes iguals. */
+.grid-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
 }
-.slogan{
-    background: lightgreen;
-    width: 50vh;
-    height: 80px;
-    margin: 10px;
+@media (min-width: 768px) {
+    .grid-cards {
+    grid-template-columns: 1fr 1fr;
+}
+}
+
+/* PROJECTE — Grid distribueix regions; Flex distribueix enllaços i targetes. */
+.project-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+.project-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+@media (min-width: 768px) {
+    .project-layout {
+    grid-template-columns: 1fr 3fr;
+}
+}
+
+/* FLOAT — selectors limitats a la demostració històrica. */
+.float-menu {
+    list-style: none;
+    padding: 0;
+    background: #d5e9ef;
+}
+.float-menu > li {
+    float: left;
+    margin: .5rem;
+    padding: .5rem;
+}
+.float-menu::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+/* flow-root conté els floats sense afegir elements buits a l'HTML. */
+.float-article {
+    display: flow-root;
+}
+.float-article img {
+    float: left;
+    width: 5rem;
+    max-width: 40%;
+    height: auto;
+    margin: 0 1rem 1rem 0;
+}
+
+/* SELECTORS — només el paràgraf fill directe rep la vora. */
+.selector-demo > p {
+    border: 2px solid #075a70;
+    padding: 12px;
 }

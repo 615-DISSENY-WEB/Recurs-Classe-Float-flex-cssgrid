@@ -1,33 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ca">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Grid</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grid: files i columnes · Laboratori de CSS</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/laboratori.js" defer></script>
 </head>
 <body>
-    <header>
-        CSS GRID
-    </header>
-    <main>
-        <h2>Exemples CSS Grid</h2>
-        <div class="containergrid">
-            <div class="fillgrid">1</div>
-            <div class="fillgrid">2</div>
-            <div class="fillgrid">3</div>
-        <div class="fillgrid">4</div>
-                <div class="fillgrid">5</div>
-            <div class="fillgrid">6</div>
-            <div class="fillgrid">7</div>
-            <div class="fillgrid">8</div>
-      <!--       <div class="fillgrid">9</div> -->
-
-        </div>
-
-    </main>
-    <footer>
-        Secció de peu de pàgina
-    </footer>
+  <a class="skip-link" href="#contingut">Salta al contingut</a>
+  <header class="site-header"><a href="index.html">Laboratori de CSS / DAW</a><p class="eyebrow">Lliçó 04 · Laboratori de CSS</p><h1>Grid: files i columnes</h1></header>
+  <main id="contingut">
+    <div class="intro">
+    <p><strong>Objectiu:</strong> Construeix una graella i descobreix les files implícites.</p>
+    <p>Edita <code>assets/css/style.css</code> i aquest HTML. Canvia una propietat cada vegada, prediu el resultat i comprova’l al navegador.</p></div>
+    <section class="lesson">
+    <h2>Tres columnes amb proporcions</h2>
+    <div class="demo containergrid">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+    <div class="box">6</div>
+    <div class="box">7</div>
+    <div class="box">8</div></div>
+    <pre tabindex="0" aria-label="Exemple de codi"><code>.containergrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+}</code></pre>
+    <p><code>fr</code> reparteix espai disponible; el contingut mínim també pot condicionar les mides. La columna central rep dues fraccions. Les dues primeres files són explícites; la tercera es crea automàticament perquè hi ha vuit fills.</p>
+    <p>Activa la superposició Grid a l’inspector: tres columnes tenen quatre línies de delimitació.</p></section>
+    <section class="lesson">
+    <h2>Practica i comprova</h2>
+    <p>Fes tres columnes iguals amb repeat(). Afegeix dos fills: quantes files tindràs?</p>
+    <details>
+    <summary>Mostra una solució explicada</summary>
+    <pre tabindex="0" aria-label="Exemple de codi"><code>.containergrid { grid-template-columns: repeat(3, 1fr); }</code></pre>
+    <p>Amb deu fills es creen quatre files. Les dues últimes es creen automàticament.</p></details></section>
+    <nav class="page-nav" aria-label="Itinerari"><a href="flexbox2.html">← Flexbox: files i salt de línia</a><a href="cssgrid1.html">Grid: posicionament per línies →</a></nav></main>
+  <footer class="site-footer">Observa · prediu · modifica · comprova</footer>
 </body>
 </html>

@@ -1,31 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ca">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Grid 1</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grid: línies amb nom · Laboratori de CSS</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/laboratori.js" defer></script>
 </head>
-
 <body>
-    <header>
-        CSS GRID 2
-    </header>
-    <main>
-        <h2>Exemples CSS Grid</h2>
-        <div class="containergrid2">
-            <div class="headergrid2">Header</div>
-            <div class="sidebargrid2">Sidebar 1</div>
-            <div class="contentgrid2">Main Content</div>
-            <div class="sidebargrid22">Sidebar 2</div>
-            <div class="footergrid">Footer</div>
-        </div>
-
-    </main>
-    <footer>
-        Secció de peu de pàgina
-    </footer>
+  <a class="skip-link" href="#contingut">Salta al contingut</a>
+  <header class="site-header"><a href="index.html">Laboratori de CSS / DAW</a><p class="eyebrow">Lliçó 06 · Laboratori de CSS</p><h1>Grid: línies amb nom</h1></header>
+  <main id="contingut">
+    <div class="intro">
+    <p><strong>Objectiu:</strong> Expressa el mateix disseny amb noms significatius.</p>
+    <p>Edita <code>assets/css/style.css</code> i aquest HTML. Canvia una propietat cada vegada, prediu el resultat i comprova’l al navegador.</p></div>
+    <section class="lesson">
+    <h2>Mateix resultat, noms amb significat</h2>
+    <div class="demo containergrid2">
+    <div class="region headergrid2">Capçalera</div>
+    <div class="region sidebargrid2">Menú</div>
+    <div class="region contentgrid2">Contingut principal</div>
+    <div class="region sidebargrid22">Informació extra</div>
+    <div class="region footergrid2">Peu</div></div>
+    <pre tabindex="0" aria-label="Exemple de codi"><code>.containergrid2 {
+  display: grid;
+  grid-template-columns: [inici] 1fr [principal] 2fr [lateral] 1fr [final];
+  gap: 1rem;
+}
+.headergrid2 { grid-area: 1 / inici / 2 / final; }
+.sidebargrid2 { grid-area: 2 / inici / 3 / principal; }
+.contentgrid2 { grid-area: 2 / principal / 3 / lateral; }
+.sidebargrid22 { grid-area: 2 / lateral / 3 / final; }
+.footergrid2 { grid-area: 3 / inici / 4 / final; }</code></pre>
+    <p>L’ordre de grid-area amb quatre valors és: <strong>fila inicial / columna inicial / fila final / columna final</strong>. Els noms entre claudàtors identifiquen línies, no àrees.</p></section>
+    <section class="lesson">
+    <h2>Practica i comprova</h2>
+    <p>Fes que el peu ocupi només les columnes central i dreta, mantenint-lo a la tercera fila.</p>
+    <details>
+    <summary>Mostra una solució explicada</summary>
+    <pre tabindex="0" aria-label="Exemple de codi"><code>.footergrid2 { grid-area: 3 / principal / 4 / final; }</code></pre>
+    <p>La línia principal és l’inici de la segona columna. La primera columna de la tercera fila queda buida.</p></details></section>
+    <nav class="page-nav" aria-label="Itinerari"><a href="cssgrid1.html">← Grid: posicionament per línies</a><a href="cssgrid3.html">Grid: àrees i disseny adaptable →</a></nav></main>
+  <footer class="site-footer">Observa · prediu · modifica · comprova</footer>
 </body>
-
 </html>

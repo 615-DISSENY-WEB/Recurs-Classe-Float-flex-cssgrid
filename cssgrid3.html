@@ -1,31 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ca">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Grid Area nom</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grid: àrees i disseny adaptable · Laboratori de CSS</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/laboratori.js" defer></script>
 </head>
-
 <body>
-    <header>
-        CSS GRID NOM
-    </header>
-    <main>
-        <h2>Exemples CSS Grid nom</h2>
-        <div class="containergrid3">
-            <div class="headergrid3"><div class="logo"></div> <div class="slogan"></div></div>
-            <div class="sidebargrid3">Sidebar 1</div>
-            <div class="contentgrid3">Main Content</div>
-            <div class="sidebargrid32">Sidebar 2</div>
-            <div class="footergrid3">Footer</div>
-        </div>
+  <a class="skip-link" href="#contingut">Salta al contingut</a>
+  <header class="site-header"><a href="index.html">Laboratori de CSS / DAW</a><p class="eyebrow">Lliçó 07 · Laboratori de CSS</p><h1>Grid: àrees i disseny adaptable</h1></header>
+  <main id="contingut">
+    <div class="intro">
+    <p><strong>Objectiu:</strong> Passa d’una columna a una estructura de tres columnes.</p>
+    <p>Edita <code>assets/css/style.css</code> i aquest HTML. Canvia una propietat cada vegada, prediu el resultat i comprova’l al navegador.</p></div>
+    <section class="lesson">
+    <h2>Dibuixa la pàgina amb noms</h2>
+    <p>Fem tres passos: activem Grid al pare, dibuixem les zones amb noms i indiquem quin fill va a cada zona.</p>
+    <ol><li><code>display: grid</code> activa la graella.</li><li><code>grid-template-areas</code> dibuixa les files: cada text entre cometes és una fila.</li><li><code>grid-area: cap</code> col·loca la capçalera a la zona que hem anomenat cap.</li></ol>
+    <div class="demo containergrid3">
+    <div class="region headergrid3">Capçalera</div>
+    <div class="region sidebargrid3">Menú</div>
+    <div class="region contentgrid3">Contingut principal</div>
+    <div class="region sidebargrid32">Informació extra</div>
+    <div class="region footergrid3">Peu</div></div>
+    <pre tabindex="0" aria-label="Exemple de codi"><code>.containergrid3 {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas:
+    &quot;cap cap cap&quot;
+    &quot;menu contingut extra&quot;
+    &quot;peu peu peu&quot;;
+  gap: 1rem;
+}
+.headergrid3 { grid-area: cap; }
+.sidebargrid3 { grid-area: menu; }
+.contentgrid3 { grid-area: contingut; }
+.sidebargrid32 { grid-area: extra; }
+.footergrid3 { grid-area: peu; }</code></pre>
+    <p><code>1fr 2fr 1fr</code> reparteix l’espai en tres columnes: la central té dues parts i les altres una cadascuna.</p>
+    <p>El dibuix té tres files: la capçalera ocupa tota l’amplada a dalt, el cos es reparteix en tres columnes (menú, contingut, extra) i el peu torna a ocupar tota l’amplada a baix. Així es defineix el disseny de la pàgina sense dependre de l’amplada de la finestra.</p>
+    <p>Les àrees amb nom han de formar rectangles. Cada fila del dibuix ha de tenir el mateix nombre de cel·les. El punt <code>.</code> representa una cel·la buida.</p>
+    <p class="note">El canvi de disposició no canvia l’ordre de lectura ni de tabulació de l’HTML. Escriu primer un ordre lògic i conserva’l en totes les amplades.</p></section>
+    <section class="lesson">
+    <h2>Practica i comprova</h2>
+    <p>Situa la informació extra en una fila pròpia a tota l’amplada, abans del peu.</p>
+    <details>
+    <summary>Mostra una solució explicada</summary>
+    <pre tabindex="0" aria-label="Exemple de codi"><code>.containergrid3 {
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas: &quot;cap cap&quot; &quot;menu contingut&quot; &quot;extra extra&quot; &quot;peu peu&quot;;
+}</code></pre>
+    <p>El nou dibuix té dues columnes i quatre files. No cal tocar les assignacions grid-area dels fills ni l’HTML.</p></details></section>
 
-    </main>
-    <footer>
-        Secció de peu de pàgina
-    </footer>
+    <nav class="page-nav" aria-label="Itinerari"><a href="cssgrid2.html">← Grid: línies amb nom</a><a href="responsive.html">Galeries: Flexbox o Grid? →</a></nav></main>
+  <footer class="site-footer">Observa · prediu · modifica · comprova</footer>
 </body>
-
 </html>

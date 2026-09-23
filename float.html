@@ -1,40 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ca">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Float</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Annex: per a què serveix float? · Laboratori de CSS</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/laboratori.js" defer></script>
 </head>
 <body>
-    <header>
-        FLOAT
-    </header>
-    <main>
-        <h2>Llista amb float (menú horitzontal)</h2>
-        <ul>
-            <li>Inici</li>
-            <li>Serveis</li>
-            <li>Contacte</li>
-            <li>Sobre nosaltres</li>
-             <li>Més coses</li>
-        </ul>
-
-        <h2>Float amb imatges</h2>
-        <div style="border:1px solid #bbb; background:#f9f9f9; padding:1em; box-sizing:border-box;">
-            <img src="./assets/img/www_128.gif" alt="Float esquerra" style="float:left; margin:0 1em 1em 0; border-radius:8px;">
-            <img src="./assets/img/internet_128.gif" alt="Float dreta" style="float:right; margin:0 0 1em 1em; border-radius:8px;">
-            <p>
-                Aquest paràgraf envolta dues imatges: una flotant a l'esquerra i una a la dreta.<br>
-                L'ús de <code>float: left</code> i <code>float: right</code> permet que el text flueixi al voltant dels elements flotants.<br>
-                Pots afegir més text per veure com el contingut s'adapta a l'espai restant entre les dues imatges flotants.
-            </p>
-                         <!-- Què passa si treiem el clear: both? -->
-            <div style="clear: both;"></div> 
-        </div>
-    </main>
-    <footer>
-        Secció de peu de pàgina
-    </footer>
+  <a class="skip-link" href="#contingut">Salta al contingut</a>
+  <header class="site-header"><a href="index.html">Laboratori de CSS / DAW</a><p class="eyebrow">Lliçó 10 · Laboratori de CSS</p><h1>Annex: per a què serveix float?</h1></header>
+  <main id="contingut">
+    <div class="intro">
+    <p><strong>Objectiu:</strong> Envolta una imatge amb text i entén el context històric.</p>
+    <p>Edita <code>assets/css/style.css</code> i aquest HTML. Canvia una propietat cada vegada, prediu el resultat i comprova’l al navegador.</p></div>
+    <section class="lesson">
+    <h2>Un ús actual: text que envolta una imatge</h2>
+    <div class="demo float-article"><img src="assets/img/www_128.gif" alt="" width="128" height="128">
+    <p>Una imatge flotant deixa que el text flueixi al seu costat i continuï a sota quan supera la seva alçada. Aquest comportament és útil en una composició editorial. A diferència de les targetes en una graella, aquí volem que les línies de text envoltin la imatge.</p></div>
+    <pre tabindex="0" aria-label="Exemple de codi"><code>.float-article { display: flow-root; }
+.float-article img { float: left; margin: 0 1rem 1rem 0; }</code></pre>
+    <p>flow-root crea un context de format que conté la imatge flotant. Amb molt poc text, el pare continua incloent l’alçada de la imatge.</p></section>
+    <section class="lesson">
+    <h2>Context històric: un menú amb float</h2>
+    <p>Abans de Flexbox s’utilitzava float per a menús. Conservem aquest exemple per entendre codi antic; per construir una navegació nova practica Flexbox.</p>
+    <ul class="float-menu">
+    <li><a href="index.html">Inici</a></li>
+    <li><a href="flexbox1.html">Flexbox</a></li>
+    <li><a href="cssgrid.html">Grid</a></li></ul>
+    <pre tabindex="0" aria-label="Exemple de codi"><code>.float-menu &gt; li { float: left; }
+.float-menu::after { content: &quot;&quot;; display: block; clear: both; }</code></pre>
+    <p>El pseudo-element amb clear fa que el pare recuperi l’alçada dels fills flotants. Canviar left per right també altera la disposició visual: compara-la amb l’ordre de tabulació.</p></section>
+    <section class="lesson">
+    <h2>Practica i comprova</h2>
+    <p>Substitueix el menú flotant per Flexbox. Quines regles pots eliminar?</p>
+    <details>
+    <summary>Mostra una solució explicada</summary>
+    <pre tabindex="0" aria-label="Exemple de codi"><code>.float-menu { display: flex; flex-wrap: wrap; gap: 1rem; }
+.float-menu &gt; li { float: none; margin: 0; }
+.float-menu::after { content: none; }</code></pre>
+    <p>Flexbox manté els fills en el seu layout; ja no necessites clear ni el pseudo-element. Els selectors continuen limitats a aquest menú.</p></details></section>
+    <nav class="page-nav" aria-label="Itinerari"><a href="projecte.html">← Projecte: una agenda de tallers</a><a href="index.html">Torna a l’itinerari →</a></nav></main>
+  <footer class="site-footer">Observa · prediu · modifica · comprova</footer>
 </body>
 </html>
