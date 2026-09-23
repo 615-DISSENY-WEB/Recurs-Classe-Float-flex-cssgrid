@@ -21,7 +21,7 @@ Començar pel significat de pare, fill i `>` (fill directe), amb exemples petits
 | cssgrid.html | Tres columnes, fr i files implícites |
 | cssgrid1.html | Posicionament per línies i span |
 | cssgrid2.html | Línies amb nom i grid-area |
-| cssgrid3.html | Àrees amb nom i media queries |
+| cssgrid3.html | Àrees amb nom i disseny de web en tres files |
 | responsive.html | Comparació de files i columnes; canvi senzill amb @media |
 | projecte.html | Agenda de tallers amb Grid i Flexbox |
 | float.html | Text envoltant imatges i menú històric |
